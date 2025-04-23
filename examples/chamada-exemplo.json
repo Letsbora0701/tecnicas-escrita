@@ -1,0 +1,13 @@
+{
+  "vara": "1ª Vara Cível",
+  "cidade": "Porto Alegre",
+  "uf": "RS",
+  "resumoCaso": "Autor sofreu danos materiais e morais após falha de prestação de serviço.",
+  "fatos": "Cliente realizava procedimento quando ocorreu interrupção abrupta...",
+  "fundamentosJuridicos": "Fundamentação com base nos artigos 186 e 927 do Código Civil.",
+  "pedidos": "Requer indenização por danos morais de R$ 20.000,00 e danos materiais de R$ 5.000,00.",
+  "requerimentosFinais": "Citação da parte ré, concessão de justiça gratuita, intimações no endereço do advogado.",
+  "incluirTutelaUrgencia": true,
+  "incluirValorCausa": true,
+  "incluirProvas": true
+}
