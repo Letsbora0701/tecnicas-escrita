@@ -1,0 +1,15 @@
+{
+  "name": "tecnicas-escrita",
+  "version": "1.0.0",
+  "description": "API para geração de petições jurídicas persuasivas com base em técnicas de storytelling, neurociência e retórica.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel dev"
+  },
+  "author": "Seu Nome ou Organização",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
