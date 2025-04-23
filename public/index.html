@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gerador de Petição Persuasiva</title>
+  <style>
+    body { font-family: sans-serif; padding: 32px; max-width: 800px; margin: auto; }
+    textarea, input { width: 100%; margin-bottom: 12px; padding: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Gerador de Petição Jurídica Persuasiva</h1>
+  <form id="form">
+    <input name="vara" placeholder="Vara" required />
+    <input name="cidade" placeholder="Cidade" required />
+    <input name="uf" placeholder="UF" required />
+    <textarea name="resumoCaso" placeholder="Resumo do Caso" required></textarea>
+    <textarea name="fatos" placeholder="Fatos" required></textarea>
+    <textarea name="fundamentosJuridicos" placeholder="Fundamentos Jurídicos" required></textarea>
+    <textarea name="pedidos" placeholder="Pedidos" required></textarea>
+    <textarea name="requerimentosFinais" placeholder="Requerimentos Finais" required></textarea>
+    <label><input type="checkbox" name="incluirTutelaUrgencia" /> Incluir tutela de urgência</label><br/>
+    <label><input type="checkbox" name="incluirValorCausa" /> Incluir valor da causa</label><br/>
+    <label><input type="checkbox" name="incluirProvas" /> Incluir provas</label><br/>
+    <button type="submit">Gerar Petição</button>
+  </form>
+  <h2>Resultado:</h2>
+  <pre id="resultado" style="white-space: pre-wrap; background: #f4f4f4; padding: 12px;"></pre>
+
+  <script>
+    document.getElementById('form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const data = Object.fromEntries(new FormData(form).entries());
+      data.incluirTutelaUrgencia = form.incluirTutelaUrgencia.checked;
+      data.incluirValorCausa = form.incluirValorCausa.checked;
+      data.incluirProvas = form.incluirProvas.checked;
+
+      const res = await fetch('/api/gerar-peticao', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      const json = await res.json();
+      document.getElementById('resultado').textContent = json.peticao || 'Erro ao gerar petição.';
+    });
+  </script>
+</body>
+</html>
