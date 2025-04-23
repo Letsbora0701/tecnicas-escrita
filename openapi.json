@@ -5,12 +5,12 @@
     "description": "Gera petições jurídicas completas com técnicas de storytelling jurídico, neurociência, psicologia comportamental e retórica clássica. Ideal para ações personalizadas com GPT.",
     "version": "1.0.0"
   },
-  "servers": [
-    {
-      "url": "https://tecnicas-escrita-jur.vercel.app",
-      "description": "Produção (Vercel)"
-    }
-  ],
+ "servers": [
+  {
+    "url": "https://tecnicas-escrita-jur.vercel.app/api",
+    "description": "Produção"
+  }
+]
   "paths": {
     "/gerar-peticao": {
       "post": {
