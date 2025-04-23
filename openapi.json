@@ -1,0 +1,149 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "API de Petições Jurídicas Persuasivas",
+    "description": "Gera petições jurídicas completas com técnicas de storytelling jurídico, neurociência, psicologia comportamental e retórica clássica. Ideal para ações personalizadas com GPT.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://tecnicas-escrita-jur.vercel.app",
+      "description": "Produção (Vercel)"
+    }
+  ],
+  "paths": {
+    "/gerar-peticao": {
+      "post": {
+        "operationId": "gerarPeticao",
+        "summary": "Gera uma petição jurídica completa",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "vara": { "type": "string" },
+                  "cidade": { "type": "string" },
+                  "uf": { "type": "string" },
+                  "resumoCaso": { "type": "string" },
+                  "fatos": { "type": "string" },
+                  "fundamentosJuridicos": { "type": "string" },
+                  "pedidos": { "type": "string" },
+                  "requerimentosFinais": { "type": "string" },
+                  "incluirTutelaUrgencia": { "type": "boolean" },
+                  "incluirValorCausa": { "type": "boolean" },
+                  "incluirProvas": { "type": "boolean" }
+                },
+                "required": [
+                  "vara",
+                  "cidade",
+                  "uf",
+                  "resumoCaso",
+                  "fatos",
+                  "fundamentosJuridicos",
+                  "pedidos",
+                  "requerimentosFinais"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Petição gerada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "peticao": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/estruturas": {
+      "get": {
+        "operationId": "listarEstruturas",
+        "summary": "Lista a estrutura padrão de uma petição",
+        "responses": {
+          "200": {
+            "description": "Lista dos blocos estruturais da petição",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tecnicas-persuasao": {
+      "get": {
+        "operationId": "listarTecnicasPersuasao",
+        "summary": "Lista técnicas de escrita persuasiva aplicadas ao Direito",
+        "responses": {
+          "200": {
+            "description": "Técnicas de persuasão jurídica",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "integer" },
+                      "nome": { "type": "string" },
+                      "descricao": { "type": "string" },
+                      "funcionamento": { "type": "string" },
+                      "exemplo": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/referencias-tecnicas": {
+      "get": {
+        "operationId": "listarReferencias",
+        "summary": "Lista autores e obras que embasam as técnicas de persuasão",
+        "responses": {
+          "200": {
+            "description": "Referências teóricas por técnica",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "tecnica": { "type": "string" },
+                      "autores": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                      },
+                      "obras": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
