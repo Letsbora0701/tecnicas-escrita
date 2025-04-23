@@ -2,38 +2,72 @@
   "openapi": "3.1.0",
   "info": {
     "title": "API de Petições Jurídicas Persuasivas",
-    "description": "Gera petições jurídicas completas com técnicas de storytelling jurídico, neurociência, psicologia comportamental e retórica clássica. Ideal para ações personalizadas com GPT.",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "description": "Gera petições jurídicas completas e persuasivas com base em técnicas como storytelling jurídico sensorial, gatilhos mentais, espelhamento de valores e estrutura cognitiva do texto. Ideal para integração com Ações GPT e automação jurídica."
   },
- "servers": [
-  {
-    "url": "https://tecnicas-escrita-jur.vercel.app/api",
-    "description": "Produção"
-  }
-]
+  "servers": [
+    {
+      "url": "https://tecnicas-escrita-jur.vercel.app/api",
+      "description": "Servidor da API na Vercel"
+    }
+  ],
   "paths": {
     "/gerar-peticao": {
       "post": {
         "operationId": "gerarPeticao",
-        "summary": "Gera uma petição jurídica completa",
+        "summary": "Gera uma petição jurídica persuasiva",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
+                "description": "Gera uma petição jurídica com estrutura narrativa e argumentativa estratégica. Aplica técnicas como storytelling sensorial, gatilhos mentais e retórica jurídica.",
                 "properties": {
-                  "vara": { "type": "string" },
-                  "cidade": { "type": "string" },
-                  "uf": { "type": "string" },
-                  "resumoCaso": { "type": "string" },
-                  "fatos": { "type": "string" },
-                  "fundamentosJuridicos": { "type": "string" },
-                  "pedidos": { "type": "string" },
-                  "requerimentosFinais": { "type": "string" },
-                  "incluirTutelaUrgencia": { "type": "boolean" },
-                  "incluirValorCausa": { "type": "boolean" },
-                  "incluirProvas": { "type": "boolean" }
+                  "vara": {
+                    "type": "string",
+                    "description": "Nome da vara judicial. Ex: '1ª Vara Cível'."
+                  },
+                  "cidade": {
+                    "type": "string",
+                    "description": "Cidade da comarca. Ex: 'São Paulo'."
+                  },
+                  "uf": {
+                    "type": "string",
+                    "description": "Sigla do estado. Ex: 'SP'."
+                  },
+                  "resumoCaso": {
+                    "type": "string",
+                    "description": "Resumo emocional e técnico do caso. Use priming emocional e espelhamento de valores."
+                  },
+                  "fatos": {
+                    "type": "string",
+                    "description": "Descrição sensorial e cronológica dos fatos com storytelling jurídico. Destaque o ponto de virada e o drama da parte autora."
+                  },
+                  "fundamentosJuridicos": {
+                    "type": "string",
+                    "description": "Base legal e jurisprudencial. Ex: artigos do CC, CPC, doutrina e precedentes."
+                  },
+                  "pedidos": {
+                    "type": "string",
+                    "description": "Pedidos principais e acessórios. Ex: indenização por danos morais e materiais."
+                  },
+                  "requerimentosFinais": {
+                    "type": "string",
+                    "description": "Pedidos finais como citação da parte ré, justiça gratuita e intimações."
+                  },
+                  "incluirTutelaUrgencia": {
+                    "type": "boolean",
+                    "description": "Se verdadeiro, incluir tópico de tutela provisória com fundamentação no art. 300 do CPC."
+                  },
+                  "incluirValorCausa": {
+                    "type": "boolean",
+                    "description": "Se verdadeiro, incluir o valor da causa com justificativa legal e cálculo aproximado."
+                  },
+                  "incluirProvas": {
+                    "type": "boolean",
+                    "description": "Se verdadeiro, incluir pedido de provas (documentais, testemunhais, periciais)."
+                  }
                 },
                 "required": [
                   "vara",
@@ -51,13 +85,16 @@
         },
         "responses": {
           "200": {
-            "description": "Petição gerada com sucesso",
+            "description": "Petição jurídica gerada com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "peticao": { "type": "string" }
+                    "peticao": {
+                      "type": "string",
+                      "description": "Texto da petição gerada com técnicas de persuasão jurídica aplicadas."
+                    }
                   }
                 }
               }
@@ -72,7 +109,7 @@
         "summary": "Lista a estrutura padrão de uma petição",
         "responses": {
           "200": {
-            "description": "Lista dos blocos estruturais da petição",
+            "description": "Componentes estruturais da petição jurídica.",
             "content": {
               "application/json": {
                 "schema": {
@@ -88,10 +125,10 @@
     "/tecnicas-persuasao": {
       "get": {
         "operationId": "listarTecnicasPersuasao",
-        "summary": "Lista técnicas de escrita persuasiva aplicadas ao Direito",
+        "summary": "Lista técnicas de persuasão aplicadas à redação jurídica",
         "responses": {
           "200": {
-            "description": "Técnicas de persuasão jurídica",
+            "description": "Técnicas persuasivas como storytelling jurídico, espelhamento de valores e uso de gatilhos mentais.",
             "content": {
               "application/json": {
                 "schema": {
@@ -116,10 +153,10 @@
     "/referencias-tecnicas": {
       "get": {
         "operationId": "listarReferencias",
-        "summary": "Lista autores e obras que embasam as técnicas de persuasão",
+        "summary": "Lista os autores e obras que embasam as técnicas aplicadas",
         "responses": {
           "200": {
-            "description": "Referências teóricas por técnica",
+            "description": "Lista de fundamentos teóricos por técnica persuasiva.",
             "content": {
               "application/json": {
                 "schema": {
